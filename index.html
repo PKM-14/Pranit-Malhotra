@@ -6,130 +6,104 @@
 <title>Pranit Malhotra | Engineering Portfolio</title>
 
 <style>
-:root {
-    --bg-primary: #0b132b;
-    --bg-secondary: #1c2541;
-    --accent: #5bc0be;
-    --text-primary: #ffffff;
-    --text-muted: #cfd8dc;
-    --card-bg: #24324a;
-    --badge-bg: #5bc0be;
-    --badge-text: #0b132b;
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #000;
+    line-height: 1.9;
+    text-align: center;
+    font-size: 18px;
 }
-
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.8; }
 
 /* NAVBAR */
 .navbar {
-    position: fixed; top:0; width:100%;
-    background: rgba(11,19,43,0.95); backdrop-filter: blur(8px);
-    display:flex; justify-content:space-between; align-items:center; padding:12px 40px; z-index:1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 1px solid #ddd;
 }
-.navbar h1 { font-size:20px; font-weight:600; }
-.nav-links a { color: var(--text-muted); text-decoration:none; margin-left:24px; font-size:14px; font-weight:500; transition:0.2s ease; }
-.nav-links a:hover { color: var(--accent); transform:translateY(-2px); }
+.nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
 
 /* HERO */
 .hero {
-    height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-    padding:0 20px;
-    background: linear-gradient(rgba(11,19,43,0.7), rgba(11,19,43,0.7)), url('Nats 3rd place photo.jpg') no-repeat center/cover;
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
-.hero h1 { font-size:3rem; margin-bottom:16px; animation:fadeInDown 1s ease forwards; }
-.hero p { font-size:1.25rem; color: var(--accent); max-width: 1200px; animation:fadeInDown 1.2s ease forwards; }
-.hero .hero-badge { background-color: var(--accent); color: var(--bg-primary); padding:8px 16px; border-radius:20px; font-weight:600; font-size:1.1rem; margin-top:12px; }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranit Malhotra | Engineering Portfolio</title>
-
-<style>
-:root {
-    --bg-primary: #0b132b;
-    --bg-secondary: #1c2541;
-    --accent: #5bc0be;
-    --text-primary: #ffffff;
-    --text-muted: #cfd8dc;
-    --card-bg: #24324a;
-    --badge-bg: #5bc0be;
-    --badge-text: #0b132b;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: "Segoe UI", Inter, sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height:1.8; text-align:center; }
-
-/* NAVBAR */
-.navbar {
-    position: fixed; top:0; width:100%;
-    background: rgba(11,19,43,0.95); backdrop-filter: blur(8px);
-    display:flex; justify-content:space-between; align-items:center; padding:12px 40px; z-index:1000;
-}
-.navbar h1 { font-size:22px; font-weight:600; }
-.nav-links a { color: var(--text-muted); text-decoration:none; margin-left:24px; font-size:16px; font-weight:500; transition:0.2s ease; }
-.nav-links a:hover { color: var(--accent); transform:translateY(-2px); }
-
-/* HERO */
-.hero {
-    height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
-    padding:0 20px;
-    background: linear-gradient(rgba(11,19,43,0.7), rgba(11,19,43,0.7)), url('Nats 3rd place photo.jpg') no-repeat center/cover;
-}
-.hero h1 { font-size:3.2rem; margin-bottom:16px; animation:fadeInDown 1s ease forwards; }
-.hero p { font-size:1.5rem; color: var(--accent); max-width: 1200px; animation:fadeInDown 1.2s ease forwards; }
-.hero .hero-badge { background-color: var(--accent); color: var(--bg-primary); padding:8px 16px; border-radius:20px; font-weight:600; font-size:1.2rem; margin-top:12px; }
+.hero h1 { font-size: 3.5rem; }
+.hero p { font-size: 1.8rem; }
+.hero-badge { font-size: 1.5rem; margin-top:10px; }
 
 /* SECTIONS */
-section { padding:100px 60px 80px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
-section.visible { opacity:1; transform:translateY(0); }
-section h2 { font-size:38px; margin-bottom:30px; letter-spacing:0.5px; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px; }
+section {
+    padding: 120px 60px;
+}
+h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+}
 
 /* CARDS */
-.card { background-color: var(--card-bg); padding:40px; border-radius:12px; margin-top:30px; border:1px solid rgba(255,255,255,0.06); box-shadow:0 8px 25px rgba(0,0,0,0.25); transition: transform 0.3s ease; font-size:1.2rem; text-align:center; }
-.card:hover { transform: translateY(-5px); }
-img { border-radius:8px; margin-top:20px; }
+.card {
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 20px;
+}
 
-/* CERTIFICATES SECTION */
-.certificate-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:30px; text-align:left; }
-.certificate-row img { width:25%; min-width:120px; border-radius:8px; }
-.certificate-text { max-width:600px; font-size:1.25rem; }
-.certificate-text h3 { font-size:1.4rem; color: var(--accent); margin-bottom:10px; }
+/* CERTIFICATES */
+.certificate-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.certificate-row img {
+    width: 25%;
+}
+.certificate-text {
+    max-width: 600px;
+    text-align: left;
+}
+.certificate-text h3 {
+    font-size: 26px;
+}
 
-/* PROJECTS GRID */
-.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; margin-top:20px; }
-.project { position:relative; overflow:hidden; border-radius:12px; cursor:pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; }
-.project img { width:100%; height:auto; display:block; transition: transform 0.4s ease, filter 0.4s ease; }
-.project:hover img { transform: scale(1.08); filter: brightness(0.75); }
-.project .caption { position:absolute; bottom:0; width:100%; padding:14px; text-align:center; background: rgba(11,19,43,0.8); color: var(--accent); font-weight:600; font-size:1.15rem; opacity:0; transform:translateY(30%); transition:all 0.4s ease; }
-.project:hover .caption { opacity:1; transform:translateY(0); }
-.project:hover { box-shadow:0 15px 35px rgba(0,0,0,0.4); }
-
-/* SKILLS */
-.skills { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px; text-align:center; }
-.skill-icon { width:120px; height:120px; display:flex; justify-content:center; align-items:center; background-color: var(--accent); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.3rem; transition:transform 0.3s ease; }
-.skill-icon:hover { transform:scale(1.2); }
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+}
+.project img {
+    width: 100%;
+}
 
 /* FOOTER */
-footer { background-color: var(--bg-secondary); padding:60px 40px; text-align:center; font-size:1.2rem; }
-footer a { display:inline-block; color: var(--accent); text-decoration:none; margin:10px 20px; font-weight:500; transition:color 0.25s ease; }
-footer a:hover { text-decoration:underline; }
-
-/* RESPONSIVE */
-@media (max-width:1024px) { .hero h1 { font-size:2.8rem; } }
-@media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1.2rem; } }
-
-/* ANIMATIONS */
-@keyframes fadeInDown { 0% { opacity:0; transform:translateY(-20px);} 100% { opacity:1; transform:translateY(0);} }
-
+footer {
+    padding: 60px;
+}
+footer a {
+    display:block;
+    margin:10px;
+    font-size:18px;
+}
 </style>
 </head>
-<body onload="window.scrollTo(0,0)">
 
-<!-- NAVBAR -->
+<body>
+
 <nav class="navbar">
     <h1>Pranit Malhotra</h1>
     <div class="nav-links">
@@ -142,122 +116,100 @@ footer a:hover { text-decoration:underline; }
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <h1>Pranit Malhotra</h1>
-    <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design</p>
+    <p>Aspiring Aerospace Engineer</p>
     <div class="hero-badge">Nationals 3rd Place — Team Blitz</div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
     <div class="card">
-        <p>I am Pranit Malhotra, a highly motivated student at St Olave's Grammar School with strong academic focus in Physics, Mathematics, and Aerospace Engineering. I have achieved Top 100 nationally in the British Physics Olympiad and competed successfully in UKMT Junior and Intermediate Olympiads.</p>
-        <p>My passion lies in applying theoretical concepts to real-world engineering challenges, optimising design performance, and leveraging data-driven methods for experimental validation. I have experience with STEM Racing (F1 in Schools), the Arkwright Portable Wind Tunnel, and engineering design portfolios. I aim to contribute to aerospace innovation while nurturing curiosity, creativity, and problem-solving skills in all my work.</p>
+        <p>I am a student at St Olave’s Grammar School with strong academic interests in Physics, Mathematics, and Aerospace Engineering. My work focuses on applying theoretical concepts to real-world engineering problems, particularly in aerodynamics and experimental design.</p>
+
+        <p>I have developed experience through STEM Racing (F1 in Schools), where I contributed to a national-level team achieving 3rd place. Alongside this, I have undertaken independent engineering projects such as a portable wind tunnel, and explored computational methods including CFD simulation using SimScale.</p>
+
+        <p>My long-term goal is to contribute to advancements in aerospace engineering through a combination of analytical thinking, technical skill, and practical experimentation.</p>
     </div>
 </section>
 
-<!-- CERTIFICATES -->
 <section id="certificates">
     <h2>Certificates & Achievements</h2>
 
     <div class="certificate-row">
-        <img src="Nats 3rd place photo.jpg" alt="Nationals podium">
+        <img src="Nats 3rd place photo.jpg">
         <div class="certificate-text">
             <h3>STEM Racing Nationals — 3rd Place</h3>
-            <p>As part of Team Blitz, I contributed to aerodynamics and design optimisation, culminating in a top-three national finish. Demonstrated teamwork, project management, and advanced engineering application.</p>
+            <p>Achieved 3rd place nationally as part of Team Blitz. Focused on aerodynamics, optimisation, and design engineering within a competitive environment.</p>
         </div>
     </div>
 
     <div class="certificate-row">
-        <img src="Screenshot 2025-03-03 202557.png" alt="Airbus certificate">
+        <img src="Screenshot 2025-03-03 202557.png">
         <div class="certificate-text">
             <h3>Airbus Aerospace Work Experience</h3>
-            <p>Gained practical experience in engineering tasks, prototyping, and observational design. Enhanced understanding of professional aerospace workflows and applied physics principles.</p>
+            <p>Developed understanding of engineering workflows, design processes, and real-world aerospace applications.</p>
         </div>
     </div>
 
     <div class="certificate-row">
-        
         <div class="certificate-text">
-            <h3>UKMT Mathematics Challenge & Junior Physics Challenge Gold</h3>
-            <p>Competitor in UKMT Junior and Intermediate Olympiads, demonstrating advanced problem-solving abilities. Achieved Gold in the Junior Physics Challenge, reflecting proficiency in complex physics concepts and analytical thinking.</p>
+            <h3>Academic Competitions</h3>
+            <p>UKMT Mathematics Challenge (JMC, IMC, SMC), Junior Physics Challenge Gold, and Euroclassica. Demonstrates strong analytical thinking and problem-solving ability across mathematics and physics.</p>
         </div>
     </div>
 
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-    <h2>Engineering Projects</h2>
+    <h2>Projects</h2>
 
-    <!-- Wind Tunnel -->
     <div class="projects-grid">
-        <div class="project">
-            <img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project" style="width:75%; margin:0 auto; display:block;">
-            <div class="caption">Portable Wind Tunnel — Arkwright Engineering Project</div>
-        </div>
+        <img src="Screenshot 2026-02-08 152035.png">
     </div>
 
-    <!-- D&E Pages -->
-    <div class="projects-grid" style="margin-top:40px;">
-        <div class="project"><img src="1 blitz d&e nats .png" alt="D&E Page 1"><div class="caption">D&E Page 1 — Team Blitz</div></div>
-        <div class="project"><img src="2 blitz d&e nats .png" alt="D&E Page 2"><div class="caption">D&E Page 2 — Team Blitz</div></div>
-        <div class="project"><img src="3 blitz d&e nats .png" alt="D&E Page 3"><div class="caption">D&E Page 3 — Team Blitz</div></div>
-        <div class="project"><img src="4 blitz d&e nats .png" alt="D&E Page 4"><div class="caption">D&E Page 4 — Team Blitz</div></div>
-        <div class="project"><img src="5 blitz d&e nats .png" alt="D&E Page 5"><div class="caption">D&E Page 5 — Team Blitz</div></div>
-        <div class="project"><img src="6 blitz d&e nats .png" alt="D&E Page 6"><div class="caption">D&E Page 6 — Team Blitz</div></div>
-        <div class="project"><img src="7 blitz d&e nats .png" alt="D&E Page 7"><div class="caption">D&E Page 7 — Team Blitz</div></div>
+    <div class="projects-grid">
+        <img src="1 blitz d&e nats .png">
+        <img src="2 blitz d&e nats .png">
+        <img src="3 blitz d&e nats .png">
+        <img src="4 blitz d&e nats .png">
+        <img src="5 blitz d&e nats .png">
+        <img src="6 blitz d&e nats .png">
+        <img src="7 blitz d&e nats .png">
     </div>
 
-    <!-- Future Projects -->
-    <div class="card" style="margin-top:40px; font-size:1.3rem; text-align:center;">
+    <div class="card">
         <h3>Future Projects</h3>
-        <p>RC Plane development and Robotic Arm project to expand hands-on aerospace and engineering experience.</p>
+        <p>RC Plane and Robotic Arm development.</p>
     </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-    <h2>My Skills & Future Focus</h2>
-    <div class="skills">
-        <div class="skill-icon">Python</div>
-        <div class="skill-icon">MATLAB</div>
-        <div class="skill-icon">CAD</div>
-        <div class="skill-icon">CFD</div>
-        <div class="skill-icon">3D Printing</div>
-    </div>
-    <div class="card" style="margin-top:30px; font-size:1.2rem;">
-        <p>Next steps: competing in CanSat, participating in STEM Racing Pro Season, developing RC Plane & Robotic Arm projects.</p>
+    <h2>Skills & Experience</h2>
+    <div class="card">
+        <p>CAD, CFD (SimScale), Python, MATLAB, 3D Printing</p>
+        <p>COMPOS (2 years), Fusion Programme</p>
+        <p>Bronze Duke of Edinburgh Award</p>
+        <p>2× Intermediate Full Colours — St Olave’s</p>
     </div>
 </section>
 
-<!-- HOBBIES -->
 <section id="hobbies">
     <h2>Hobbies & Interests</h2>
     <div class="card">
-        <p>Grade 8 guitar player with a passion for music and creativity.</p>
-        <p>Love solving puzzles, critical thinking challenges, and logic games.</p>
-        <p>Active in sports: rugby and hockey. Captained my school’s U13–U15 rugby teams, demonstrating leadership, teamwork, and strategic thinking.</p>
+        <p>Grade 8 Guitar with strong interest in music and creativity.</p>
+        <p>Enjoy solving puzzles and logical challenges.</p>
+        <p>Active in rugby and hockey. Captain of U13–U15 rugby teams.</p>
+        <p>Volunteered at Southborough Cricket Club for 3 years.</p>
     </div>
 </section>
 
-<!-- CONTACT -->
 <footer id="contact">
-    <h2>Contact & Links</h2>
+    <h2>Contact</h2>
     <a href="https://www.linkedin.com/in/pranit-malhotra-2504ba338/">LinkedIn</a>
     <a href="https://www.instagram.com/14pranitmalhotra/">Instagram</a>
     <a href="https://www.instagram.com/team_blitz8/">Team Blitz</a>
-    <a href="https://www.gofundme.com/f/team-blitz8">Team Blitz GoFundMe</a>
 </footer>
-
-<script>
-// Scroll reveal for sections
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } }); }, { threshold: 0.15 });
-sections.forEach(sec => observer.observe(sec));
-</script>
 
 </body>
 </html>
