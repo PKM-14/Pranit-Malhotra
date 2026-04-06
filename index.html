@@ -3,107 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranit Malhotra | Engineering Portfolio</title>
+<title>Pranit Malhotra | Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #000;
-    line-height: 1.9;
-    text-align: center;
-    font-size: 18px;
+:root {
+    --bg-primary: #0b1f5b; /* deep blue */
+    --accent: #1db7f1; /* bright blue accent */
+    --text-primary: #ffffff; /* white text */
+    --text-muted: #cfd8dc;
+    --highlight: #9d4edd; /* purple */
 }
+
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Montserrat', sans-serif; color: var(--text-primary); overflow-x:hidden; }
+
+/* Canvas for dynamic background */
+#spaceCanvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
 /* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    border-bottom: 1px solid #ddd;
-}
-.nav-links a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-}
+.navbar { position: fixed; top:0; width:100%; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:16px 50px; background: rgba(11,31,91,0.7); backdrop-filter: blur(8px); }
+.navbar h1 { font-family: 'Roboto Slab', serif; font-weight:800; font-size:24px; color:var(--accent); }
+.nav-links a { color: var(--text-muted); text-decoration:none; margin-left:30px; font-weight:600; font-size:15px; transition:0.2s ease; }
+.nav-links a:hover { color: var(--highlight); transform:translateY(-2px); }
 
 /* HERO */
-.hero {
-    height: 100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-.hero h1 { font-size: 3.5rem; }
-.hero p { font-size: 1.8rem; }
-.hero-badge { font-size: 1.5rem; margin-top:10px; }
+.hero { height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; z-index:1; padding:0 20px; }
+.hero h1 { font-family: 'Roboto Slab', serif; font-weight:800; font-size:3.5rem; margin-bottom:16px; color: var(--accent); text-shadow:0 0 12px #1db7f1; }
+.hero p { font-size:1.6rem; color: var(--text-muted); max-width:900px; margin-bottom:20px; }
+.hero .hero-badge { background-color: var(--highlight); color: var(--bg-primary); padding:10px 20px; border-radius:30px; font-weight:700; font-size:1.2rem; box-shadow:0 0 15px rgba(157,78,221,0.6); }
 
 /* SECTIONS */
-section {
-    padding: 120px 60px;
-}
-h2 {
-    font-size: 42px;
-    margin-bottom: 30px;
-}
+section { padding:120px 60px 80px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; text-align:center; position:relative; z-index:1; }
+section.visible { opacity:1; transform:translateY(0); }
+section h2 { font-family: 'Roboto Slab', serif; font-size:38px; margin-bottom:40px; color: var(--accent); letter-spacing:0.5px; border-bottom:2px solid var(--highlight); display:inline-block; padding-bottom:6px; }
 
 /* CARDS */
-.card {
-    padding: 30px;
-    max-width: 1000px;
-    margin: auto;
-    font-size: 20px;
-}
+.card { background-color: rgba(11,31,91,0.85); padding:40px; border-radius:15px; margin:30px auto; max-width:900px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 30px rgba(0,0,0,0.4); font-size:1.25rem; transition:transform 0.3s ease, box-shadow 0.3s ease; text-align:center; }
+.card:hover { transform:rotateY(6deg) rotateX(3deg); box-shadow:0 20px 40px rgba(0,0,0,0.6); }
 
-/* CERTIFICATES */
-.certificate-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-}
-.certificate-row img {
-    width: 25%;
-}
-.certificate-text {
-    max-width: 600px;
-    text-align: left;
-}
-.certificate-text h3 {
-    font-size: 26px;
-}
+/* PROJECTS GRID */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; margin-top:20px; }
+.project { position:relative; overflow:hidden; border-radius:15px; cursor:pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.project img { width:100%; height:auto; display:block; transition: transform 0.4s ease, filter 0.4s ease; }
+.project:hover img { transform: scale(1.08) rotateY(4deg); filter: brightness(0.75); }
+.project .caption { position:absolute; bottom:0; width:100%; padding:14px; text-align:center; background: rgba(11,31,91,0.85); color: var(--highlight); font-weight:700; font-size:1.2rem; opacity:0; transform:translateY(30%); transition:all 0.4s ease; }
+.project:hover .caption { opacity:1; transform:translateY(0); }
+.project:hover { box-shadow:0 15px 35px rgba(0,0,0,0.5); }
 
-/* PROJECTS */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 20px;
-}
-.project img {
-    width: 100%;
-}
+/* SKILLS */
+.skills { display:flex; gap:30px; flex-wrap:wrap; justify-content:center; margin-top:40px; text-align:center; }
+.skill-icon { width:140px; height:140px; display:flex; justify-content:center; align-items:center; background-color: var(--highlight); color: var(--bg-primary); border-radius:50%; font-weight:bold; font-size:1.35rem; transition:transform 0.3s ease; box-shadow:0 8px 25px rgba(0,0,0,0.4); }
+.skill-icon:hover { transform:scale(1.2) rotateY(10deg); }
 
 /* FOOTER */
-footer {
-    padding: 60px;
-}
-footer a {
-    display:block;
-    margin:10px;
-    font-size:18px;
-}
+footer { background-color: #0b1f5b; padding:60px 40px; text-align:center; font-size:1.2rem; position:relative; z-index:1; }
+footer a { display:inline-block; color: var(--highlight); text-decoration:none; margin:10px 20px; font-weight:600; transition:color 0.25s ease; }
+footer a:hover { text-decoration:underline; }
+
+/* RESPONSIVE */
+@media (max-width:768px) { .navbar { flex-direction:column; gap:10px; } .nav-links a { margin:0 10px; } .hero h1 { font-size:2.4rem; } .hero p { font-size:1.3rem; } }
 </style>
 </head>
-
 <body>
 
+<canvas id="spaceCanvas"></canvas>
+
+<!-- NAVBAR -->
 <nav class="navbar">
     <h1>Pranit Malhotra</h1>
     <div class="nav-links">
@@ -116,100 +85,179 @@ footer a {
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
     <h1>Pranit Malhotra</h1>
-    <p>Aspiring Aerospace Engineer</p>
+    <p>Aspiring Aerospace Engineer | Aerodynamics & Experimental Design</p>
     <div class="hero-badge">Nationals 3rd Place — Team Blitz</div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>I am a student at St Olave’s Grammar School with strong academic interests in Physics, Mathematics, and Aerospace Engineering. My work focuses on applying theoretical concepts to real-world engineering problems, particularly in aerodynamics and experimental design.</p>
-
-        <p>I have developed experience through STEM Racing (F1 in Schools), where I contributed to a national-level team achieving 3rd place. Alongside this, I have undertaken independent engineering projects such as a portable wind tunnel, and explored computational methods including CFD simulation using SimScale.</p>
-
-        <p>My long-term goal is to contribute to advancements in aerospace engineering through a combination of analytical thinking, technical skill, and practical experimentation.</p>
-    </div>
+<h2>About Me</h2>
+<div class="card">
+<p>I am Pranit Malhotra, a motivated student at St Olave's Grammar School passionate about physics, mathematics, and aerospace engineering. I participate in COMPOS, JMC, IMC, and SMC competitions, and have achieved Junior Physics Challenge Gold.</p>
+<p>Through F1 in Schools, CFD simulations, and hands-on engineering projects, I focus on applying theoretical knowledge to practical design challenges. I strive to enhance problem-solving, leadership, and innovation skills.</p>
+</div>
 </section>
 
+<!-- CERTIFICATES -->
 <section id="certificates">
-    <h2>Certificates & Achievements</h2>
-
-    <div class="certificate-row">
-        <img src="Nats 3rd place photo.jpg">
-        <div class="certificate-text">
-            <h3>STEM Racing Nationals — 3rd Place</h3>
-            <p>Achieved 3rd place nationally as part of Team Blitz. Focused on aerodynamics, optimisation, and design engineering within a competitive environment.</p>
-        </div>
-    </div>
-
-    <div class="certificate-row">
-        <img src="Screenshot 2025-03-03 202557.png">
-        <div class="certificate-text">
-            <h3>Airbus Aerospace Work Experience</h3>
-            <p>Developed understanding of engineering workflows, design processes, and real-world aerospace applications.</p>
-        </div>
-    </div>
-
-    <div class="certificate-row">
-        <div class="certificate-text">
-            <h3>Academic Competitions</h3>
-            <p>UKMT Mathematics Challenge (JMC, IMC, SMC), Junior Physics Challenge Gold, and Euroclassica. Demonstrates strong analytical thinking and problem-solving ability across mathematics and physics.</p>
-        </div>
-    </div>
-
+<h2>Certificates & Achievements</h2>
+<div class="card">
+<p>Achievements include: EUROCLASICA, JMC, IMC, SMC, COMPOS, Junior Physics Challenge Gold, F1 in Schools Nationals 3rd Place, Airbus Work Experience, Bronze DofE, Intermediate Full Colours at St Olave's, Cricket volunteering at Southborough Cricket Club for 3 years, Grade 8 Guitar, and Fusion participation.</p>
+</div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="projects-grid">
-        <img src="Screenshot 2026-02-08 152035.png">
-    </div>
-
-    <div class="projects-grid">
-        <img src="1 blitz d&e nats .png">
-        <img src="2 blitz d&e nats .png">
-        <img src="3 blitz d&e nats .png">
-        <img src="4 blitz d&e nats .png">
-        <img src="5 blitz d&e nats .png">
-        <img src="6 blitz d&e nats .png">
-        <img src="7 blitz d&e nats .png">
-    </div>
-
-    <div class="card">
-        <h3>Future Projects</h3>
-        <p>RC Plane and Robotic Arm development.</p>
-    </div>
+<h2>Engineering Projects</h2>
+<div class="projects-grid">
+<div class="project"><img src="Screenshot 2026-02-08 152035.png" alt="Wind tunnel project"><div class="caption">Portable Wind Tunnel — Arkwright Engineering Project</div></div>
+<div class="project"><img src="1 blitz d&e nats .png" alt="D&E Page 1"><div class="caption">D&E Pages — Team Blitz</div></div>
+</div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-    <h2>Skills & Experience</h2>
-    <div class="card">
-        <p>CAD, CFD (SimScale), Python, MATLAB, 3D Printing</p>
-        <p>COMPOS (2 years), Fusion Programme</p>
-        <p>Bronze Duke of Edinburgh Award</p>
-        <p>2× Intermediate Full Colours — St Olave’s</p>
-    </div>
+<h2>Skills & Focus</h2>
+<div class="skills">
+<div class="skill-icon">Python</div>
+<div class="skill-icon">MATLAB</div>
+<div class="skill-icon">CAD</div>
+<div class="skill-icon">CFD</div>
+<div class="skill-icon">3D Printing</div>
+</div>
 </section>
 
+<!-- HOBBIES -->
 <section id="hobbies">
-    <h2>Hobbies & Interests</h2>
-    <div class="card">
-        <p>Grade 8 Guitar with strong interest in music and creativity.</p>
-        <p>Enjoy solving puzzles and logical challenges.</p>
-        <p>Active in rugby and hockey. Captain of U13–U15 rugby teams.</p>
-        <p>Volunteered at Southborough Cricket Club for 3 years.</p>
-    </div>
+<h2>Hobbies & Interests</h2>
+<div class="card">
+<p>Grade 8 guitar player. Passion for music, problem-solving, and critical thinking.</p>
+<p>Active in rugby and hockey, captained U13–U15 rugby teams at school.</p>
+<p>Enjoy puzzles, Fusion programs, and creative STEM challenges.</p>
+</div>
 </section>
 
+<!-- CONTACT -->
 <footer id="contact">
-    <h2>Contact</h2>
-    <a href="https://www.linkedin.com/in/pranit-malhotra-2504ba338/">LinkedIn</a>
-    <a href="https://www.instagram.com/14pranitmalhotra/">Instagram</a>
-    <a href="https://www.instagram.com/team_blitz8/">Team Blitz</a>
+<h2>Contact & Links</h2>
+<a href="https://www.linkedin.com/in/pranit-malhotra-2504ba338/">LinkedIn</a>
+<a href="https://www.instagram.com/14pranitmalhotra/">Instagram</a>
+<a href="https://www.instagram.com/team_blitz8/">Team Blitz</a>
+<a href="https://www.gofundme.com/f/team-blitz8">Team Blitz GoFundMe</a>
 </footer>
+
+<script>
+// Scroll reveal
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+}, { threshold: 0.15 });
+sections.forEach(sec => observer.observe(sec));
+
+// Space background with parallax
+const canvas = document.getElementById('spaceCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+for(let i=0;i<300;i++){
+    stars.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.5, d:Math.random()*0.5, twinkle: Math.random()*0.05});
+}
+
+let nebulaLayers = [];
+for(let i=0;i<3;i++){
+    nebulaLayers.push({offsetX: Math.random()*canvas.width, offsetY: Math.random()*canvas.height, speed: 0.05*(i+1), hue: 240 - i*10, alpha: 0.15+Math.random()*0.1});
+}
+
+let particles = [];
+for(let i=0;i<50;i++){
+    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, dx:Math.random()*0.3-0.15, dy:Math.random()*0.3-0.15, alpha:Math.random()*0.3+0.1});
+}
+
+let shootingStars = [];
+function createShootingStar(){
+    shootingStars.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height/2,
+        len: Math.random()*300+150,
+        speed: Math.random()*7+8,
+        angle: Math.PI/4
+    });
+}
+
+// Parallax offsets
+let mouseX = 0, mouseY = 0;
+window.addEventListener('mousemove', e => {
+    mouseX = (e.clientX - window.innerWidth/2)/window.innerWidth;
+    mouseY = (e.clientY - window.innerHeight/2)/window.innerHeight;
+});
+
+function animate(){
+    // Background gradient
+    const grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+    grad.addColorStop(0, `hsl(240,70%,12%)`);
+    grad.addColorStop(0.5, `hsl(210,70%,15%)`);
+    grad.addColorStop(1, `hsl(260,70%,18%)`);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // Nebula layers with parallax
+    nebulaLayers.forEach((layer,i)=>{
+        ctx.fillStyle = `hsla(${layer.hue},60%,25%,${layer.alpha})`;
+        ctx.beginPath();
+        ctx.ellipse((layer.offsetX + mouseX*30*(i+1))%canvas.width, (layer.offsetY + mouseY*30*(i+1))%canvas.height, 400, 300, 0, 0, Math.PI*2);
+        ctx.fill();
+        layer.offsetX += layer.speed;
+        layer.offsetY += layer.speed/2;
+    });
+
+    // Particles with parallax
+    particles.forEach(p=>{
+        p.x += p.dx; p.y += p.dy;
+        if(p.x<0)p.x=canvas.width; if(p.x>canvas.width)p.x=0;
+        if(p.y<0)p.y=canvas.height; if(p.y>canvas.height)p.y=0;
+        ctx.fillStyle = `rgba(29,183,241,${p.alpha})`;
+        ctx.beginPath(); ctx.arc(p.x + mouseX*20, p.y + mouseY*20, p.r,0,Math.PI*2); ctx.fill();
+    });
+
+    // Stars with twinkle + parallax
+    stars.forEach(s=>{
+        s.y+=s.d;
+        s.r += Math.sin(Date.now()*0.002+s.twinkle)*0.05;
+        if(s.y>canvas.height) s.y=0;
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(s.x + mouseX*10, s.y + mouseY*10, s.r,0,Math.PI*2);
+        ctx.fill();
+    });
+
+    // Shooting stars
+    shootingStars.forEach((s,i)=>{
+        s.x+=s.speed*Math.cos(s.angle);
+        s.y+=s.speed*Math.sin(s.angle);
+        ctx.beginPath();
+        ctx.moveTo(s.x,s.y);
+        ctx.lineTo(s.x - s.len*Math.cos(s.angle), s.y - s.len*Math.sin(s.angle));
+        ctx.strokeStyle='white';
+        ctx.lineWidth=2;
+        ctx.stroke();
+        if(s.x>canvas.width || s.y>canvas.height) shootingStars.splice(i,1);
+    });
+    if(Math.random()<0.008) createShootingStar();
+
+    requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
